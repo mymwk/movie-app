@@ -1,0 +1,2 @@
+nodeJS, npm --> npx 설치
+create-react-app --> react를 실행하는데 필요한 패키지들 자동으로 설치
