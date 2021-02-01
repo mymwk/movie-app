@@ -1,2 +1,39 @@
-nodeJS, npm --> npx 설치
-create-react-app --> react를 실행하는데 필요한 패키지들 자동으로 설치
+<<1>> ReactJS Install
+  - nodeJS, npm --> npx 설치
+  - create-react-app --> react를 실행하는데 필요한 패키지들 자동으로 설치
+
+<<2>> ReactJS 설명
+  2-1) JSX
+    - JSX: React에만 있는 개념으로, Javascript와 HTML을 연결시켜주는 개념 (JS + HTML) 
+  2-2) component
+    - component: React에서 사용하는 함수 (return HTML) --> 함수 이름이 대문자로 시작함 (ex. App)
+    - component는 항상 <import React from "react"> 필요 
+    - ReactDOM.render: 1개 component를 rendering 할 수 있기 때문에, App에 import --> <App />과 같은 형식으로
+  2-3) React Magic
+    - component를 import할 때, html property처럼 proterty형태로 인자를 넘겨줄 수 있음.
+      proterty들은 object 형태로 담겨서 component에 인자로 넘어감.
+    - key prop은 component에 인자로 넘어가지 않음
+  2-4) prop-types (npm i prop-types)
+    - 넘겨주는 prop이랑 component에서 받는 prop이랑 이름이나 자료형이 같은지 체크해줌
+    - Mongoose의 Schema같은 느낌
+
+
+<<3>> ReactJS와 관련하여, JS에 관한 설명
+  3-1) array의 map function
+  3-2) HTML에서 {code}: JS code
+
+# Reference
+<<1>> component에 인자를 받아서 쓰는 형식
+function Food(props) {
+  // argument could be as like {fav} == (props.fav)
+  // argument name must be same as 'React Magic, Prop name'
+  return <h1> I like {props.fav}</h1>;
+}
+
+<<2>> array의 map 함수 부분에 Function이 올 수도 있음
+- function renderFood(dish) {
+  return <Food name={dish.name} picture={dish.image} />;
+}
+- function App() {
+  return <div>{foodILike.map(renderFood)}</div>;
+}
