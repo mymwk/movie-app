@@ -2,25 +2,68 @@
   - nodeJS, npm --> npx 설치
   - create-react-app --> react를 실행하는데 필요한 패키지들 자동으로 설치
 
+
 <<2>> ReactJS 설명
+  2-0) ReactJS를 배우면서 추가적으로 알아야하는 개념
+    JSX, component, props, state...
+
   2-1) JSX
     - JSX: React에만 있는 개념으로, Javascript와 HTML을 연결시켜주는 개념 (JS + HTML) 
+
   2-2) component
     - component: React에서 사용하는 함수 (return HTML) --> 함수 이름이 대문자로 시작함 (ex. App)
     - component는 항상 <import React from "react"> 필요 
     - ReactDOM.render: 1개 component를 rendering 할 수 있기 때문에, App에 import --> <App />과 같은 형식으로
+
   2-3) React Magic
     - component를 import할 때, html property처럼 proterty형태로 인자를 넘겨줄 수 있음.
       proterty들은 object 형태로 담겨서 component에 인자로 넘어감.
     - key prop은 component에 인자로 넘어가지 않음
+
   2-4) prop-types (npm i prop-types)
     - 넘겨주는 prop이랑 component에서 받는 prop이랑 이름이나 자료형이 같은지 체크해줌
     - Mongoose의 Schema같은 느낌
 
+  2-5) state
+    - 정적인 데이터가 아니라, 동적인(변하는) 데이터를 다루기 위해서는 state 필요
+    - state를 사용하기 위해서 React.Component라는 class를 extend해서 사용
+    - state는 object이고, object 내부에 데이터 포함
+    - state를 직접 변경해서는 안됨 
+      --> setState()라는 함수를 통해서 현재 state(current)&(this.state == current) 를 변경해야함
+      --> setState()를 호출하면, state를 불러와서 변경하고, 새로운 state를 바탕으로 render()함수를 실행함
+      --> render()를 호출하려면 setState() 사용해야함
+      --> property를 미리 object로 선언해줘도 되고, setState로 나중에 선언해줘도 됨.
+
+  2-6) ReactJS에서 사용되는 함수
+    - React.Component는 life cycle method(component로 작업할 때, update시에 작동하는 것들이 있음)
+    2-6-1) Mounting : component birth
+      - componentDidMount()
+    2-6-2) Updating : general update
+      - componentDidUpdate()
+    2-6-3) Unmouting : component removal
+      - componentWillUnmount()
+
+  2-7) state를 사용하지 않으면 class component 사용할 필요 없음. function component 사용 가능
+
 
 <<3>> ReactJS와 관련하여, JS에 관한 설명
   3-1) array의 map function
+
   3-2) HTML에서 {code}: JS code
+
+  3-3) class in JS
+    - class 내에서 자신 class를 지칭할 때, this 사용 (this.~~)
+    - function은 return으로 값을 반환하지만, class는 render()함수 실행 (React)
+
+
+<<4>> 그 외 packages
+  4-1) axios : API에서 data를 가져오는 방법
+    - fetch()를 이용하는 방법도 있지만, axios를 이용하는 방법이 더 선호됨
+    - fetch 겉에 layer로 axios가 입혀진 느낌. fetch가 땅콩이라면 axios는 그 위 초콜릿 비유
+
+  4-2) gh-pages : github은 html, css, javascript로 이루어진 static homepage 지원해줌
+    - https://{your github username}.github.io/{the name of the project in github}
+
 
 # Reference
 <<1>> component에 인자를 받아서 쓰는 형식
@@ -37,3 +80,5 @@ function Food(props) {
 - function App() {
   return <div>{foodILike.map(renderFood)}</div>;
 }
+
+<<3>> HTML의 CSS property에 JS를 쓰는 방법이 있지만, 따로 CSS file 만들어서 import하는 방법이 낫다. (Split & Conquer)
